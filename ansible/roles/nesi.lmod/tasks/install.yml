@@ -1,0 +1,33 @@
+---
+# - name: Install Lmod required Packages
+#   dnf:
+#     name: "{{ item }}"
+#     state: present
+#   with_items:
+#     "{{ lmod_required_packages }}"
+
+- name: Download lmod archive
+  ansible.builtin.get_url:
+    url: https://sourceforge.net/projects/lmod/files/Lmod-{{ lmod_version }}.tar.bz2
+    dest: /opt/Lmod-{{ lmod_version }}.tar.bz2
+
+- name: Extract lmod archive
+  ansible.builtin.unarchive:
+    src: /opt/Lmod-{{ lmod_version }}.tar.bz2
+    dest: /opt
+    creates: /opt/Lmod-{{ lmod_version }}
+    remote_src: yes
+
+- name: Run Lmod ./configure
+  shell: >-
+    ./configure --prefix=/opt/apps \
+     && make install \
+     && ln -s /opt/apps/lmod/lmod/init/profile /etc/profile.d/z00_lmod.sh \
+     && ln -s /opt/apps/lmod/lmod/init/cshrc /etc/profile.d/z00_lmod.csh
+  run_once: true
+  args:
+    chdir: "/opt/Lmod-{{ lmod_version }}"
+
+# # clean up
+# RUN rm -f /Lmod-8.7.tar.bz2
+# WORKDIR /

@@ -1,0 +1,22 @@
+- name: Ensure extra repos
+  ansible.builtin.yum_repository: "{{ item }}" # noqa: args[module]
+  loop: "{{ nesi_extra_repos }}"
+  loop_control:
+    label: "{{ item.name }}"
+
+- name: Ensure the crb repository is enabled
+  shell: dnf config-manager --set-enabled crb
+
+- name: Install System Packages
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    "{{ system_packages }}"
+
+- name: Install Compute Packages
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    "{{ compute_packages }}"
