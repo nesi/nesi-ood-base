@@ -1,7 +1,5 @@
----
+---    
 - name: Install Compute Packages
   dnf:
-    name: "{{ item }}"
+    name: "{{ compute_packages }}"
     state: present
-  with_items:
-    "{{ compute_packages }}"

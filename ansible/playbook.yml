@@ -6,4 +6,6 @@
     - { role: nesi.compute }
     - { role: nesi.ood-image }
     - { role: nesi.lmod }
+    - { role: nesi.turbovnc }
+    - { role: nesi.websockify }
     - { role: kubectl }

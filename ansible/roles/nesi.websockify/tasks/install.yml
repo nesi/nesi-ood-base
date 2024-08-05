@@ -1,0 +1,19 @@
+---
+- name: Download websockify archive
+  ansible.builtin.get_url:
+    url: https://github.com/novnc/websockify/archive/refs/tags/v{{ websockify_version }}.zip
+    dest: /opt/websockify-{{ websockify_version }}.zip
+
+- name: Extract websockify archive
+  ansible.builtin.unarchive:
+    src: /opt/websockify-{{ websockify_version }}.zip
+    dest: /opt
+    creates: /opt/websockify-{{ websockify_version }}
+    remote_src: yes
+
+- name: Run setup.py
+  shell: >-
+    python3 setup.py install
+  run_once: true
+  args:
+    chdir: "/opt/websockify-{{ websockify_version }}"

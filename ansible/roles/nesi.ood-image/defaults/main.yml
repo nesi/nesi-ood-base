@@ -1,9 +1,3 @@
 ---
 compute_packages:
   - nss-pam-ldapd
-  - tigervnc-server
-  - tigervnc-server-module
-  #- libXfont
-  - pixman
-  - xterm
-  #- xorg-x11-twm

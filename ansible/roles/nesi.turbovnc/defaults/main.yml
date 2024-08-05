@@ -1,0 +1,29 @@
+---
+ood_extra_repos:
+  - name: turbovnc
+    file: turbovnc
+    description: "TurboVNC official RPMs"
+    baseurl: "https://packagecloud.io/dcommander/turbovnc/rpm_any/rpm_any/$basearch"
+    gpgcheck: true
+    async: true
+    gpgkey: 
+      - "https://packagecloud.io/dcommander/turbovnc/gpgkey"
+      - "https://raw.githubusercontent.com/TurboVNC/repo/main/VGL-GPG-KEY"
+      - "https://raw.githubusercontent.com/TurboVNC/repo/main/VGL-GPG-KEY-1024"
+  - name: turbovnc-source
+    file: turbovnc-source
+    description: "TurboVNC official SRPMs"
+    baseurl: "https://packagecloud.io/dcommander/turbovnc/rpm_any/rpm_any/SRPMS"
+    gpgcheck: true
+    async: true
+    gpgkey:
+      - "https://packagecloud.io/dcommander/turbovnc/gpgkey"
+      - "https://raw.githubusercontent.com/TurboVNC/repo/main/VGL-GPG-KEY"
+      - "https://raw.githubusercontent.com/TurboVNC/repo/main/VGL-GPG-KEY-1024"
+
+compute_packages:
+  - turbovnc
+  - pixman
+  - xterm
+
+turbovnc_bin_dir: "/opt/TurboVNC/bin"
