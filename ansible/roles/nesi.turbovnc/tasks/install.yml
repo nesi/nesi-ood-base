@@ -10,7 +10,12 @@
     name: "{{ compute_packages }}"
     state: present
 
-- name: "Add {{ turbovnc_bin_dir }} to PATH"
-  lineinfile:
-    path: /etc/environment
-    line: 'PATH="{{ ansible_env.PATH }}:{{ turbovnc_bin_dir }}"'
+# - name: "Add {{ turbovnc_bin_dir }} to PATH"
+#   lineinfile:
+#     path: /etc/environment
+#     line: 'PATH="{{ ansible_env.PATH }}:{{ turbovnc_bin_dir }}"'
+
+- name: Install TurboVNC sh to /etc/profile.d
+  template:
+    src: 00-turbovncpath.sh.j2
+    dest: /etc/profile.d/00-turbovncpath.sh
