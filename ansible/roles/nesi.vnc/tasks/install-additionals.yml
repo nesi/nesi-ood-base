@@ -1,0 +1,14 @@
+---    
+- name: Install additional Packages
+  dnf:
+    name: "{{ additonal_packages }}"
+    state: present
+
+- name: python install ts
+  shell: >-
+    pip3 install {{ item }}
+  with_items: "{{ python_packages }}"
+
+- name: Install xfce group
+  shell: >-
+    dnf groupinstall -y xfce

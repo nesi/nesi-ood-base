@@ -1,4 +1,6 @@
 ---
+websockify_version: 0.12.0
+
 ood_extra_repos:
   - name: turbovnc
     file: turbovnc
@@ -21,10 +23,17 @@ ood_extra_repos:
       - "https://raw.githubusercontent.com/TurboVNC/repo/main/VGL-GPG-KEY"
       - "https://raw.githubusercontent.com/TurboVNC/repo/main/VGL-GPG-KEY-1024"
 
-compute_packages:
+turbovnc_packages:
   - turbovnc
   - pixman
   - xterm
+
+additonal_packages:
+  - python3-pip
+  - xorg-x11-xauth
+
+python_packages:
+  - ts
 
 group_packages:
   - xfce

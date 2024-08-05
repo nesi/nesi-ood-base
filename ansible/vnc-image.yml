@@ -1,0 +1,10 @@
+---
+- name: NeSI Docker vnc image playbook
+  hosts: all
+  become: true
+  roles:
+    - { role: nesi.compute }
+    - { role: nesi.ood-image }
+    - { role: nesi.lmod }
+    - { role: nesi.vnc }
+    - { role: kubectl }

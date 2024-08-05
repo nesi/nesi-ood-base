@@ -1,0 +1,14 @@
+---    
+- name: Install TurboVNC Packages
+  dnf:
+    name: "{{ turbovnc_packages }}"
+    state: present
+
+- name: Install TurboVNC sh to /etc/profile.d
+  template:
+    src: 00-turbovncpath.sh.j2
+    dest: /etc/profile.d/00-turbovncpath.sh
+
+# - name: chown conf for root
+#   shell: >-
+#     chown root:root /opt/TurboVNC/etc/turbovncserver-security.conf
