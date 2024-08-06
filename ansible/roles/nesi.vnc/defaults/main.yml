@@ -22,11 +22,34 @@ ood_extra_repos:
       - "https://packagecloud.io/dcommander/turbovnc/gpgkey"
       - "https://raw.githubusercontent.com/TurboVNC/repo/main/VGL-GPG-KEY"
       - "https://raw.githubusercontent.com/TurboVNC/repo/main/VGL-GPG-KEY-1024"
+  - name: virtualgl
+    file: virtualgl
+    description: "VirtualGL official RPMs"
+    baseurl: "https://packagecloud.io/dcommander/virtualgl/rpm_any/rpm_any/$basearch"
+    gpgcheck: true
+    async: true
+    gpgkey:
+      - "https://packagecloud.io/dcommander/virtualgl/gpgkey"
+      - "https://raw.githubusercontent.com/VirtualGL/repo/main/VGL-GPG-KEY"
+      - "https://raw.githubusercontent.com/VirtualGL/repo/main/VGL-GPG-KEY-1024"
+  - name: virtualgl-source
+    file: virtualgl-source
+    description: "VirtualGL official SRPMs"
+    baseurl: "https://packagecloud.io/dcommander/virtualgl/rpm_any/rpm_any/SRPMS"
+    gpgcheck: true
+    async: true
+    gpgkey:
+      - "https://packagecloud.io/dcommander/virtualgl/gpgkey"
+      - "https://raw.githubusercontent.com/VirtualGL/repo/main/VGL-GPG-KEY"
+      - "https://raw.githubusercontent.com/VirtualGL/repo/main/VGL-GPG-KEY-1024"
 
 turbovnc_packages:
   - turbovnc
   - pixman
   - xterm
+
+virtualgl_packages:
+  - VirtualGL
 
 additonal_packages:
   - python3-pip

@@ -11,9 +11,18 @@
     creates: /opt/websockify-{{ websockify_version }}
     remote_src: yes
 
+- name: Rename websockify-{{ websockify_version }} to websockify
+  shell: >-
+    mv /opt/websockify-{{ websockify_version }} /opt/websockify
+
 - name: Run setup.py
   shell: >-
     python3 setup.py install
   run_once: true
   args:
-    chdir: "/opt/websockify-{{ websockify_version }}"
+    chdir: "/opt/websockify"
+
+- name: Clean up
+  ansible.builtin.file:
+    path: /opt/websockify-{{ websockify_version }}.zip
+    state: absent

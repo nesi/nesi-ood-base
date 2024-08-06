@@ -28,6 +28,7 @@
   args:
     chdir: "/opt/Lmod-{{ lmod_version }}"
 
-# # clean up
-# RUN rm -f /Lmod-8.7.tar.bz2
-# WORKDIR /
+- name: Clean up
+  ansible.builtin.file:
+    path: /opt/Lmod-{{ lmod_version }}.tar.bz2
+    state: absent

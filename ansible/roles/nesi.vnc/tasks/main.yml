@@ -2,6 +2,8 @@
 
 - import_tasks: install-turbovnc.yml
 
+- import_tasks: install-virtualgl.yml
+
 - import_tasks: install-websockify.yml
 
 - import_tasks: install-additionals.yml

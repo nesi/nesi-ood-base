@@ -244,3 +244,4 @@ compute_packages:
   - libpng12
   - libpng15
   - libnsl
+  - squashfs-tools

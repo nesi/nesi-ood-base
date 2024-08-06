@@ -2,9 +2,11 @@
 
 ```
 cd packer
-packer build template.json
+packer build base-template.json
+packer build vnc-template.json
 ```
 
 ```
-docker push ghcr.io/lbrick/nesi-ondemand-base/nesi-ondemand-base:0.1
+docker push ghcr.io/lbrick/nesi-docker-base/nesi-docker-base:$BASE_VERSION
+docker push ghcr.io/lbrick/nesi-ondemand-vnc/nesi-ondemand-vnc:$VNC_VERSION
 ```

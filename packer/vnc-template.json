@@ -41,7 +41,7 @@
         {
           "type": "docker-tag",
           "repository": "ghcr.io/lbrick/nesi-ondemand-vnc/nesi-ondemand-vnc",
-          "tag": "0.1"
+          "tag": "0.2"
         }
       ]
     ]

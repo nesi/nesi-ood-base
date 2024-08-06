@@ -1,0 +1,5 @@
+---    
+- name: Install VirtualGL Packages
+  dnf:
+    name: "{{ virtualgl_packages }}"
+    state: present
