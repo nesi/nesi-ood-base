@@ -244,4 +244,12 @@ compute_packages:
   - libpng12
   - libpng15
   - libnsl
+  # Apptainer requirements
+  - e2fsprogs
+  - fakeroot
+  - fuse-overlayfs
+  #- fuse2fs
+  - libseccomp
   - squashfs-tools
+  - squashfuse
+  - cryptsetup
