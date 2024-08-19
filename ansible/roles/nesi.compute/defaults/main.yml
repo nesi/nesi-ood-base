@@ -138,6 +138,7 @@ compute_packages:
   - glib2-devel
   - libffi-devel
     # network
+  - curl
   - openssl-devel
   - libssh2-devel
   - libcurl-devel

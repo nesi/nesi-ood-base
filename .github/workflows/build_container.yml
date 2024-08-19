@@ -24,7 +24,6 @@ jobs:
       - name: Setup packer
         uses: hashicorp/setup-packer@main
       - run: ansible --version
-      - run: ansible-playbook --version
       - name: Initialise packer for base image
         run:
           packer init -upgrade base-template.pkr.hcl
