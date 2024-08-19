@@ -13,6 +13,9 @@
     state: present
     update_cache: true
 
+- name: Switch curl-minimal to curl
+  command: dnf -y swap curl-minimal curl
+
 - name: Install Compute Packages
   dnf:
     name: "{{ compute_packages }}"
