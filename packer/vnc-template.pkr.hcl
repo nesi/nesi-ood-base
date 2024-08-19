@@ -52,7 +52,7 @@ variable "docker_server" {
 
 source "docker" "nesi-base" {
   commit      = "true"
-  image       = "${docker_repository_base}:${var.docker_tag}"
+  image       = "${var.docker_repository_base}:${var.docker_tag}"
   run_command = ["-d", "-i", "-t", "--name", "${var.ansible_host}", "{{ .Image }}", "/bin/bash"]
 }
 
