@@ -15,9 +15,9 @@
   shell: >-
     mv /opt/websockify-{{ websockify_version }} /opt/websockify
 
-- name: Run setup.py
+- name: Install websockify with pip
   shell: >-
-    python3 setup.py install
+    python3 -m pip install .
   run_once: true
   args:
     chdir: "/opt/websockify"
