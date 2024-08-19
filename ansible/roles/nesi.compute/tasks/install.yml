@@ -13,8 +13,13 @@
     state: present
     update_cache: true
 
-- name: Switch curl-minimal to curl
+- name: Get package_facts for checking if curl-minimal is installed
+  ansible.builtin.package_facts:
+    manager: auto
+
+- name: Swap curl-minimal with curl (causes problems later)
   command: dnf -y swap curl-minimal curl
+  when: "'curl-minimal' in ansible_facts.packages"
 
 - name: Install Compute Packages
   dnf:
