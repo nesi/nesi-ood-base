@@ -45,6 +45,7 @@ jobs:
       - name: Build and push vnc image
         run: |
           export PKR_VAR_docker_repository="${REGISTRY}/${REPO_OWNER}/nesi-ondemand-vnc"
+          export PKR_VAR_docker_repository_base="${REGISTRY}/${REPO_OWNER}/nesi-docker-base"
           packer build vnc-template.pkr.hcl
         working-directory: packer
         env:

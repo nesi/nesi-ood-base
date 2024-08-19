@@ -21,6 +21,11 @@ variable "ansible_host" {
   default = "default"
 }
 
+variable "docker_repository_base" {
+  type = string
+  default = "ghcr.io/nesi/nesi-docker-base"
+}
+
 variable "docker_repository" {
   type    = string
   default = "ghcr.io/nesi/nesi-ondemand-vnc"
@@ -45,14 +50,14 @@ variable "docker_server" {
     default = "ghcr.io"
 }
 
-source "docker" "rocky93" {
+source "docker" "nesi-base" {
   commit      = "true"
-  image       = "rockylinux:9.3"
+  image       = "${docker_repository_base}:${var.docker_tag}"
   run_command = ["-d", "-i", "-t", "--name", "${var.ansible_host}", "{{ .Image }}", "/bin/bash"]
 }
 
 build {
-  sources = ["source.docker.rocky93"]
+  sources = ["source.docker.nesi-base"]
 
   provisioner "shell" {
     inline = ["dnf install python 'dnf-command(config-manager)' -y"]
