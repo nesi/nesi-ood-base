@@ -11,8 +11,10 @@
   dnf:
     name: "{{ system_packages }}"
     state: present
+    update_cache: true
 
 - name: Install Compute Packages
   dnf:
     name: "{{ compute_packages }}"
     state: present
+    update_cache: true
