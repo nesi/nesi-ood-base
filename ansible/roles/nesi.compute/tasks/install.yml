@@ -17,9 +17,9 @@
   ansible.builtin.package_facts:
     manager: auto
 
-- name: Print package facts
-  ansible.builtin.debug:
-    var: ansible_facts.packages
+#- name: Print package facts
+#  ansible.builtin.debug:
+#    var: ansible_facts.packages
 
 - name: Swap curl-minimal with curl (causes problems later)
   command: dnf -y swap curl-minimal curl
@@ -28,14 +28,6 @@
 - name: Swap libcurl-minimal with libcurl (causes problems later)
   command: dnf -y swap libcurl-minimal libcurl
   when: "'libcurl-minimal' in ansible_facts.packages"
-
-- name: Get package_facts for checking if curl-minimal is installed
-  ansible.builtin.package_facts:
-    manager: auto
-
-- name: Print package facts
-  ansible.builtin.debug:
-    var: ansible_facts.packages
 
 - name: Install Compute Packages
   dnf:
