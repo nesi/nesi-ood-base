@@ -50,14 +50,14 @@ variable "docker_server" {
     default = "ghcr.io"
 }
 
-source "docker" "nesi-base" {
+source "docker" "nesi-vnc" {
   commit      = "true"
   image       = "${var.docker_repository_base}:${var.docker_tag}"
   run_command = ["-d", "-i", "-t", "--name", "${var.ansible_host}", "{{ .Image }}", "/bin/bash"]
 }
 
 build {
-  sources = ["source.docker.nesi-base"]
+  sources = ["source.docker.nesi-vnc"]
 
   provisioner "shell" {
     inline = ["dnf install python 'dnf-command(config-manager)' -y"]

@@ -45,14 +45,14 @@ variable "docker_server" {
     default = "ghcr.io"
 }
 
-source "docker" "rocky93" {
+source "docker" "nesi-base" {
   commit      = "true"
   image       = "rockylinux:9.3"
   run_command = ["-d", "-i", "-t", "--name", "${var.ansible_host}", "{{ .Image }}", "/bin/bash"]
 }
 
 build {
-  sources = ["source.docker.rocky93"]
+  sources = ["source.docker.nesi-base"]
 
   provisioner "shell" {
     inline = ["dnf install python 'dnf-command(config-manager)' -y"]
