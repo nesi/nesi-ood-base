@@ -1,12 +1,6 @@
 # nesi-ondemand-base
 
-```
-cd packer
-packer build base-template.json
-packer build vnc-template.json
-```
+Builds the following docker images:
 
-```
-docker push ghcr.io/lbrick/nesi-docker-base/nesi-docker-base:$BASE_VERSION
-docker push ghcr.io/lbrick/nesi-ondemand-vnc/nesi-ondemand-vnc:$VNC_VERSION
-```
+- [ghcr.io/nesi/nesi-docker-base](https://github.com/nesi/nesi-ood-base/pkgs/container/nesi-docker-base)
+- [ghcr.io/nesi/nesi-ondemand-vnc](https://github.com/orgs/nesi/packages/container/package/nesi-ondemand-vnc)
