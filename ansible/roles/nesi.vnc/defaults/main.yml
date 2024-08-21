@@ -54,6 +54,7 @@ virtualgl_packages:
 additonal_packages:
   - python3-pip
   - xorg-x11-xauth
+  - firefox
 
 python_packages:
   - ts
