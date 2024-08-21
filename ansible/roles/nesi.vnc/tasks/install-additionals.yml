@@ -9,6 +9,17 @@
     pip3 install {{ item }}
   with_items: "{{ python_packages }}"
 
+#- name: Install xfce group
+#  shell: >-
+#    dnf groupinstall -y xfce
+
 - name: Install xfce group
-  shell: >-
-    dnf groupinstall -y xfce
+  dnf:
+    name: '@xfce'
+    state: present
+
+- name: Remove xfce4-screensaver
+  dnf:
+    name: xfce4-screensaver
+    state: absent
+    autoremove: false
