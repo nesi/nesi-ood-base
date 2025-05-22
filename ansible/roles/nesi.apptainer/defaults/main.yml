@@ -1,0 +1,11 @@
+dnf_packages:
+  # Apptainer requirements
+  - e2fsprogs
+  - fakeroot
+  - fuse-overlayfs
+  #- fuse2fs
+  - libseccomp
+  - squashfs-tools
+  - squashfuse
+  - cryptsetup
+  - apptainer

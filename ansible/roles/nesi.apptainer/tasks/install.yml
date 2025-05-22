@@ -1,0 +1,11 @@
+- name: Install Packages for Apptainer
+  dnf:
+    name: "{{ dnf_packages }}"
+    state: present
+    update_cache: true
+
+- name: Ensure Apptainer mnt Session dir exists
+  file:
+    path: "/var/apptainer/mnt/session/"
+    state: directory
+    mode: '0755'
