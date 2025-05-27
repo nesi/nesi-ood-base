@@ -14,6 +14,6 @@
   template:
     src: 99-apptainer.conf.j2
     dest: /etc/sysctl.d/99-apptainer.conf
-    
-- name: Reload sysctl settings from all conf files
-  ansible.builtin.command: sudo sysctl --system
+    owner: root
+    group: root
+    mode: '0644'
