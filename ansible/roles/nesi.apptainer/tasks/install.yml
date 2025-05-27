@@ -16,4 +16,4 @@
     dest: /etc/sysctl.d/99-apptainer.conf
     
 - name: Reload sysctl settings from all conf files
-  ansible.builtin.command: sysctl --system
+  ansible.builtin.command: sudo sysctl --system
