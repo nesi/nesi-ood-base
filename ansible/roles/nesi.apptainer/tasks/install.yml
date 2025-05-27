@@ -9,3 +9,11 @@
     path: "/var/apptainer/mnt/session/"
     state: directory
     mode: '0755'
+
+- name: Install 99-apptainer.conf to /etc/sysctl.d
+  template:
+    src: 99-apptainer.conf.j2
+    dest: /etc/sysctl.d/99-apptainer.conf
+    
+- name: Reload sysctl settings from all conf files
+  ansible.builtin.command: sysctl --system
