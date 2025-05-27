@@ -9,3 +9,5 @@ dnf_packages:
   - squashfuse
   - cryptsetup
   - apptainer
+
+max_user_namespaces: 16384
