@@ -47,7 +47,7 @@ variable "docker_server" {
 
 source "docker" "nesi-base" {
   commit      = "true"
-  image       = "rockylinux/rockylinux:9.4"
+  image       = "ghcr.io/lbrick/nesi-rocky-94-template:latest"
   run_command = ["-d", "-i", "-t", "--name", "${var.ansible_host}", "{{ .Image }}", "/bin/bash"]
 }
 
