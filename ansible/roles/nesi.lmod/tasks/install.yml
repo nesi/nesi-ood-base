@@ -8,12 +8,13 @@
 
 - name: Download lmod archive
   ansible.builtin.get_url:
-    url: https://sourceforge.net/projects/lmod/files/Lmod-{{ lmod_version }}.tar.bz2
-    dest: /opt/Lmod-{{ lmod_version }}.tar.bz2
+    url: https://github.com/TACC/Lmod/archive/refs/tags/{{ lmod_version }}.tar.gz
+    #url: https://sourceforge.net/projects/lmod/files/Lmod-{{ lmod_version }}.tar.bz2
+    dest: /opt/Lmod-{{ lmod_version }}.tar.gz
 
 - name: Extract lmod archive
   ansible.builtin.unarchive:
-    src: /opt/Lmod-{{ lmod_version }}.tar.bz2
+    src: /opt/Lmod-{{ lmod_version }}.tar.gz
     dest: /opt
     creates: /opt/Lmod-{{ lmod_version }}
     remote_src: yes
@@ -30,5 +31,5 @@
 
 - name: Clean up
   ansible.builtin.file:
-    path: /opt/Lmod-{{ lmod_version }}.tar.bz2
+    path: /opt/Lmod-{{ lmod_version }}.tar.gz
     state: absent

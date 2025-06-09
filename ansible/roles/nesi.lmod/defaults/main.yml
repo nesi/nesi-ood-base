@@ -1,5 +1,5 @@
 ---
-lmod_version: 8.7
+lmod_version: 8.7.55
 
 lmod_required_packages:
   - lua-5.1.4-15.x86_64
