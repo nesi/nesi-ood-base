@@ -7,4 +7,5 @@
     - { role: nesi.apptainer }
     - { role: nesi.ood-image }
     - { role: nesi.lmod }
+    - { role: nesi.slurm }
     - { role: kubectl }
