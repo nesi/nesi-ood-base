@@ -1,15 +1,7 @@
 ---
-# - name: Install Lmod required Packages
-#   dnf:
-#     name: "{{ item }}"
-#     state: present
-#   with_items:
-#     "{{ lmod_required_packages }}"
-
 - name: Download lmod archive
   ansible.builtin.get_url:
     url: https://github.com/TACC/Lmod/archive/refs/tags/{{ lmod_version }}.tar.gz
-    #url: https://sourceforge.net/projects/lmod/files/Lmod-{{ lmod_version }}.tar.bz2
     dest: /opt/Lmod-{{ lmod_version }}.tar.gz
 
 - name: Extract lmod archive

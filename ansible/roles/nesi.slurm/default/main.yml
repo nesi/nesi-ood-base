@@ -1,0 +1,21 @@
+---
+nesi_slurm_repo:
+  - name: nesi-slurm
+    file: nesi-slurm
+    description: "SLURM Packages built by NeSI"
+    baseurl: "https://prod-pulp.hpc.nesi.org.nz/pulp/content/nesi-slurm/"
+    gpgcheck: false
+
+slurm_version: 24.11.5
+
+# Base packages needed across all nodes
+slurm_packages_base:
+  - slurm-{{ slurm_version }}-1.nesi.el9.x86_64.rpm # slurm-24.05.4-1.el9.x86_64.rpm
+  - slurm-libpmi-{{ slurm_version }}-1.nesi.el9.x86_64.rpm # slurm-libpmi-24.05.4-1.el9.x86_64.rpm
+
+# Submit node packages (client tools)
+slurm_packages_submit:
+  - "{{ slurm_packages_base }}"
+  - slurm-sackd-{{ slurm_version }}-1.nesi.el9.x86_64.rpm # slurm-sackd-24.05.4-1.el9.x86_64.rpm 
+  - slurm-pam_slurm-{{ slurm_version }}-1.nesi.el9.x86_64.rpm # slurm-pam_slurm-24.05.4-1.el9.x86_64.rpm
+  - slurm-devel-{{ slurm_version }}-1.nesi.el9.x86_64.rpm # slurm-devel-24.05.4-1.el9.x86_64.rpm
