@@ -6,6 +6,11 @@ nesi_extra_repos:
     metalink: "https://mirrors.fedoraproject.org/metalink?repo=epel-$releasever&arch=$basearch&infra=$infra&content=$contentdir"
     gpgcheck: true
     gpgkey: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9"
+  - name: nesi-slurm
+    file: nesi-slurm
+    description: "SLURM Packages built by NeSI"
+    baseurl: "https://prod-pulp.hpc.nesi.org.nz/pulp/content/nesi-slurm/"
+    gpgcheck: false
 
 system_packages:
   - python3-pip

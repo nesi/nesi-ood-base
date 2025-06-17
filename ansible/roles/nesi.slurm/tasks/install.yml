@@ -1,0 +1,13 @@
+---
+- name: Ensure SLURM repos
+  ansible.builtin.yum_repository: "{{ item }}"
+  loop: "{{ nesi_slurm_repo }}"
+  loop_control:
+    label: "{{ item.name }}"
+
+- name: Install SLURM packages with dependencies
+  dnf:
+    name: "{{ item }}"
+    state: present
+    disable_gpg_check: yes
+  with_items: "{{ slurm_packages_submit }}"

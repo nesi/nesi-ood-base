@@ -3,7 +3,12 @@ name: Create and publish Docker images using Packer
 
 on:
   push:
-  workflow_dispatch:
+    branches:
+      - main       # When a PR is merged into main
+    tags:
+      - '*'
+  release:
+    types: [created]
 
 env:
   REGISTRY: ghcr.io
@@ -12,7 +17,7 @@ env:
 
 jobs:
   build-and-push-image:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: read
       packages: write

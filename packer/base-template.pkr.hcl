@@ -23,7 +23,7 @@ variable "ansible_host" {
 
 variable "docker_repository" {
   type    = string
-  default = "ghcr.io/nesi/nesi-ondemand-vnc"
+  default = "ghcr.io/nesi/nesi-docker-base"
 }
 
 variable "docker_tag" {
