@@ -1,13 +1,22 @@
 ---
+# - name: Add Pulp host to /etc/hosts
+#   lineinfile:
+#     path: /etc/hosts
+#     line: "163.7.144.249 prod-pulp.hpc.nesi.org.nz prod-pulp"
+#     state: present
+#     create: yes
+
 - name: Ensure SLURM repos
   ansible.builtin.yum_repository: "{{ item }}"
   loop: "{{ nesi_slurm_repo }}"
   loop_control:
     label: "{{ item.name }}"
 
+- name: Update package cache
+  ansible.builtin.shell:
+    sudo dnf makecache
+
 - name: Install SLURM packages with dependencies
   dnf:
-    name: "{{ item }}"
+    name: "{{ slurm_packages }}"
     state: present
-    disable_gpg_check: yes
-  with_items: "{{ slurm_packages_submit }}"
