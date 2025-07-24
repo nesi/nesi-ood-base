@@ -21,7 +21,13 @@
     name: "{{ slurm_packages }}"
     state: present
 
-- name: Setup SLURM user and group
+- name: Setup SLURM group
+  ansible.builtin.group:
+    name: "slurm"
+    system: true
+    state: present
+
+- name: Setup SLURM user account
   ansible.builtin.user:
     name: "slurm"
     group: "slurm"
