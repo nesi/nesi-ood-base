@@ -9,3 +9,4 @@
     - { role: nesi.ood-image }
     - { role: nesi.lmod }
     - { role: kubectl }
+    - { role: cve-mitigation }

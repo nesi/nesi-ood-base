@@ -9,3 +9,4 @@
     - { role: nesi.turbovnc }
     - { role: nesi.websockify }
     - { role: kubectl }
+    - { role: cve-mitigation }
