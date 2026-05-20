@@ -15,4 +15,4 @@ slurm_packages:
   - slurm-sackd-{{ slurm_version }}-1.nesi.el9 # slurm-sackd-24.05.4-1.el9 
   - slurm-pam_slurm-{{ slurm_version }}-1.nesi.el9 # slurm-pam_slurm-24.05.4-1.el9
   - slurm-devel-{{ slurm_version }}-1.nesi.el9 # slurm-devel-24.05.4-1.el9
-  - pmix-5.0.10-1.el9.x86_64.rpm
+  - pmix-5.0.10
