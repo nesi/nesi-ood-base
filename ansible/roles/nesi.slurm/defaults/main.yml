@@ -6,7 +6,7 @@ nesi_slurm_repo:
     baseurl: "https://prod-pulp.hpc.nesi.org.nz/pulp/content/nesi-slurm/"
     gpgcheck: false
 
-slurm_version: 24.11.5
+slurm_version: 25.05.7
 
 # Base packages needed across all nodes and Submit node packages (client tools)
 slurm_packages:
@@ -15,3 +15,4 @@ slurm_packages:
   - slurm-sackd-{{ slurm_version }}-1.nesi.el9 # slurm-sackd-24.05.4-1.el9 
   - slurm-pam_slurm-{{ slurm_version }}-1.nesi.el9 # slurm-pam_slurm-24.05.4-1.el9
   - slurm-devel-{{ slurm_version }}-1.nesi.el9 # slurm-devel-24.05.4-1.el9
+  - pmix-5.0.10-1.el9.x86_64.rpm
