@@ -43,6 +43,7 @@ jobs:
           PKR_VAR_docker_username: ${{ github.actor }}
           PKR_VAR_docker_password: ${{ secrets.GITHUB_TOKEN }}
           PKR_VAR_docker_server: ${{ env.REGISTRY }}
+          PKR_VAR_ansible_host: packer-${{ github.run_id }}
       - name: Initialise packer for vnc image
         run:
           packer init -upgrade vnc-template.pkr.hcl
@@ -58,3 +59,4 @@ jobs:
           PKR_VAR_docker_username: ${{ github.actor }}
           PKR_VAR_docker_password: ${{ secrets.GITHUB_TOKEN }}
           PKR_VAR_docker_server: ${{ env.REGISTRY }}
+          PKR_VAR_ansible_host: packer-${{ github.run_id }}
