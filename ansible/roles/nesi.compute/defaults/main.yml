@@ -29,7 +29,8 @@ compute_packages:
   - nvme-cli
   - sssd
   - tcpdump
-  - golang-github-prometheus-node-exporter
+  # alloy is installed by nesi.monitoring, which adds the Grafana repo first.
+  # It cannot go here: slurm.yml (nesi.compute) runs before nesi.monitoring.yml.
   # Infiniband
   - librdmacm
   - ibacm
@@ -40,6 +41,7 @@ compute_packages:
   - flex
     # misc
   - gnuplot
+  - graphviz
   - intltool
   - dos2unix
   - GraphicsMagick
@@ -59,12 +61,18 @@ compute_packages:
   - make
   - patch
   - swig
+  - latexmk
+  - glslc
     # network
   - wget
   - rsync
+  - s3cmd
+  - aria2
   - telnet
   - s-nail
   - lynx
+  - lftp
+  - nmap-ncat
     # compression
   - bzip2
   - zip
@@ -82,20 +90,28 @@ compute_packages:
   - file
   - patchelf
   - psmisc
+  - perf
+  - sysstat
+  - numactl
    # HPC
+  - apptainer
   - Lmod
   - datamash
   - stress
   - pigz
+  - numactl
+  - hwloc
     # interpreters
   - python-unversioned-command
   - perl
-  - ruby
+  - "@ruby:3.3"
   - bc
+  - php-cli
     # version control
   - subversion
   - git
   - git-lfs
+  - darcs
     # editors
   - vim-enhanced
   - emacs
@@ -103,6 +119,7 @@ compute_packages:
   - nano
   - gedit
   - ed
+  - meld
     # Shells
   - fish
   - zsh
@@ -110,11 +127,14 @@ compute_packages:
   - tcsh
   - bash-completion
     # Terminal things
+  - ncurses-term
   - tmux
   - screen
   - mc
   - tree
   - htop
+  - btop
+  - nvtop
   - pspg
   - expect
     # pdsh
@@ -123,12 +143,18 @@ compute_packages:
     # x11
   - xterm
   - xorg-x11-server-Xvfb
+  - xorg-x11-utils
+  - xorg-x11-fonts-75dpi
+  - xorg-x11-fonts-100dpi
     # NeSI tools
-  - postgresql
-  - python3-psycopg2
+  - "@postgresql:15/client"
+  - python3-psycopg3
   - python3-sqlalchemy
   - python3-dateutil
   - python3-click
+  - python3-docopt
+  - python3-prometheus_client
+  - python3-requests-oauthlib
     # perl extensions
   - perl-Clone
   - perl-Digest-SHA
@@ -140,9 +166,11 @@ compute_packages:
    # Libraries which user programs can reasonably build against
     # basics
   - glibc-devel
+  - glibc-static
   - glib2-devel
   - libffi-devel
     # network
+  - libevent-devel
   - openssl-devel
   - libssh2-devel
   - libcurl-devel
@@ -195,6 +223,11 @@ compute_packages:
   - libXtst-devel
   - libXv-devel
   - libxkbfile-devel
+    # 3D Graphics
+  - glew-devel
+  - mesa-libOSMesa-devel
+  - glslang-devel
+  - libshaderc-devel
     # GUIs
   - libxshmfence-devel
   - libxcb-devel
@@ -215,6 +248,14 @@ compute_packages:
   - zlib-devel
   - libarchive-devel
   - libaec-devel
+    # audio / video codecs
+  - libtheora-devel
+  - libvorbis-devel
+  - lame-devel
+  - openh264-devel
+  - opus-devel
+  - libvpx-devel
+  - libaom-devel
     # hardware
   - libpciaccess-devel
   - hwloc-devel
@@ -231,9 +272,13 @@ compute_packages:
   - apr-util-devel
   - apr-util-sqlite
     # misc
+  - mpdecimal-devel
+  - libgit2-devel
+  - libuuid-devel
   - zeromq-devel
   - libquadmath-devel
   - java-21-openjdk-devel
+  - "@nodejs:20/development"
   # Slurm
   - lua-devel
   - libjwt-devel
@@ -243,9 +288,11 @@ compute_packages:
   - pam-devel
   # Back compatibility
   - compat-openssl11
+  - libxcrypt-compat
   - libffi3.1
   - libicu50
   - ncurses-compat-libs
   - libpng12
   - libpng15
   - libnsl
+  - libnsl2
